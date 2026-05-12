@@ -598,6 +598,8 @@ with tab_esg:
 if st.button("Generate Compliance Report", type="primary"):
     if total_farmers == 0:
         st.error("Cannot generate report. No farmer data available on the platform.")
+    elif not api_key:
+        st.error("GROQ_API_KEY is not configured. Please set it in your environment variables or Render dashboard.")
     else:
         with st.spinner("Analyzing project clusters and generating Verra-aligned ESG impact report using Groq..."):
             try:
